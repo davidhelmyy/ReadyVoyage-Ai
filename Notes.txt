@@ -1,4 +1,0 @@
-steps:
-    -use nearby search to get location 
-    -since heuristic is constant, we will save the place ID with heuristic value .
-        -we can call api place basic details to get details when needed
