@@ -38,18 +38,23 @@
 
 
 from math import radians, cos, sin, asin, sqrt
+import json
+
 
 
 
 class AiBrain:
 
     def __init__(self,places,userPriorities,hotel,days):
-        self.places=places
+        self.places=[]
         self.plan=[]
         self.rest=[]
         self.hotel=hotel
         self.days=days
+        with open('Config.json') as json_file:
+            self.configurations = json.load(json_file)
         self.__calculatePriority(userPriorities)
+        self.filterTypes(places)
         
 
 
@@ -176,3 +181,11 @@ class AiBrain:
     def getMyPlan(self):
         return self.plan,self.rest
     
+
+    def filterTypes(self,places):
+        for place in places:
+            for type in place['types']:
+                if type in self.configurations['types']:
+                    self.places.append(place)
+                    break
+                
