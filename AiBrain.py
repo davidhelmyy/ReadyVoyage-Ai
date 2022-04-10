@@ -37,8 +37,9 @@
        
 
 
-from math import radians, cos, sin, asin, sqrt
+from copy import deepcopy
 import json
+from operator import attrgetter
 
 
 
@@ -47,15 +48,38 @@ class AiBrain:
 
     def __init__(self,places,userPriorities,hotel,days):
         self.places=[]
-        self.plan=[]
         self.rest=[]
         self.hotel=hotel
         self.days=days
+        self.init=False
         with open('Config.json') as json_file:
             self.configurations = json.load(json_file)
+
+        self.__filterTypes(places)
         self.__calculatePriority(userPriorities)
-        self.filterTypes(places)
+
+
         
+       
+    def Initialize(self):
+        if self.init:
+            return
+        for place in self.places:
+            self.__calculateHeuristic(place)
+
+        self.__modelInit()
+        self.init=True  
+        
+         
+    def getData(self):
+        num=len(self.rest)
+        if(num>30):
+            num=30
+        return self.places,self.rest[0:25]
+    
+
+
+
 
 
     def __calculatePriority(self,userPriorities):
@@ -68,123 +92,46 @@ class AiBrain:
             self.place['priority']=priority
        
 
-    def __calculateDistance (self,lat1,long1,lat2,long2):
-        lon1 = radians(float(long1))
-        lon2 = radians(float(long2))
-        lat1 = radians(float(lat1))
-        lat2 = radians(float(lat2))
-        
-        # Haversine formula
-        dlon = lon2 - lon1
-        dlat = lat2 - lat1
-        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
-    
-        c = 2 * asin(sqrt(a))
-        
-        # Radius of earth in kilometers. Use 3956 for miles
-        r = 6371
-        
-        # calculate the result
-        return(c * r)
-    
+    def __calculateHeuristic(self,place):
+        score=1
 
-    def __calculateHeuristic(self,place,current,time):
-        score=0
-
-        try:score+=float(place['rating'])
+        try:score*=float(place['rating'])
         except:pass
-        try:score+=float(place['priority'])
+        try:score*=float(place['priority'])
         except:pass
 
-        try:score+=float(place['price'])
-        except:pass
-
-        try:score+=self.__calculateBestTime(place,time)
-        except:pass
-
-        try:score=score/self.__calculateDistance(place['geometry']['location']['lat'],place['geometry']['location']['lng'],
-        current['geometry']['location']['lat'],current['geometry']['location']['lng'])
-        except:pass
-
-        return score
+        place['score']=score
 
 
-    def __calculateBestTime(self,place,time):
-        return
+    def __modelInit(self):
+        temp=[]
+        num=len(self.places)
 
-    def __createPlan(self): 
-        visited=[]
+        if(num>150):
+            num=150
 
-        for i in range (self.days):
-            self.plan.append(self.__getDayPlan(self.hotel,visited))
-            self.rest.append(self.__getRestaurant(self.plan[i][1],visited))
-        for i in range (len(self.plan)):
-            self.planID.append([self.plan[i][0]["place_id"],self.plan[i][1]["place_id"],self.plan[i][2]["place_id"]])
+        listscore=deepcopy(self.places)
+        sorted(listscore, key=attrgetter('score'),reverse=True)
 
     
 
-    def __getDayPlan(self,current,visited):
-        plan=[]
-        for i in range (3):
-            score=[]
-            for place in self.places:
-                score.append(self.__calculateHeuristic(place,current,i))
-            temp=self.__findMax(score)
-            while self.places[temp] in visited:
-                score[temp]=0
-                temp=self.__findMax(score)
+        for i in range (0,num):
+            temp.append(listscore[i])
+        for i in range (0,num):
+            if (self.places[i]) not in temp:
+                temp.append(self.places[i])
 
-            plan.append(self.places[temp])
-            visited.append(self.places[temp])
-            current=self.places[temp]
-        return plan
-          
+        self.places=temp
 
 
-    def __findMax(self,scores):
-        max=scores[0]
-        index=0
-        i=0
-        for score in scores:
-            if max<score:
-                max=score
-                index=i
-            i+=1
-        return index
+#appends restaurants in rest List and all important types in places list
 
-    def __getRestaurant(self,current,visited):
-        distance=[]
-        id=[]
-        for place in self.places:
-            if place not in visited:
-                if "restaurant" in place['types'] :
-                    id.append(place['place_id'])
-                    distance.append(self.__calculateDistance(place['geometry']['location']['lat'],place['geometry']['location']['lng'],current['geometry']['location']['lat'],current['geometry']['location']['lng']))
-        temp=self.__findMin(distance)
-        return id[temp]
-
-    def __findMin(self,array):
-        min=array[0]
-        index=0
-        i=0
-        for x in array:
-            if x<min:
-                min=x
-                index=i
-            i+=1
-
-
-    def createMyPlan(self):
-        self.__createPlan
-        print ("plan creation finished")
-        
-    def getMyPlan(self):
-        return self.plan,self.rest
-    
-
-    def filterTypes(self,places):
+    def __filterTypes(self,places):
         for place in places:
             for type in place['types']:
+                if (type=="restaurant"):
+                    self.rest.append(place)
+                    break
                 if type in self.configurations['types']:
                     self.places.append(place)
                     break
