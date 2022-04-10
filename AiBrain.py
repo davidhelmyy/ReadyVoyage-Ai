@@ -59,7 +59,7 @@ class AiBrain:
         self.__calculatePriority(userPriorities)
 
 
-        
+
        
     def Initialize(self):
         if self.init:
@@ -75,7 +75,7 @@ class AiBrain:
         num=len(self.rest)
         if(num>30):
             num=30
-        return self.places,self.rest[0:25]
+        return self.places,self.rest[0:num-1]
     
 
 
