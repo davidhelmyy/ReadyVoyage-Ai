@@ -1,1 +1,75 @@
+import json
+field_index={"AmusementParks":0,"Aquarium":1,"Museums":2,"Bar":3,"NightClubs":4,"Casino":5,"ReligousLocations":6,"Cafe":7,"Mall":8 ,"Restaurant":9,"Zoo":10,
+"TouristicPlaces":11,"Stadium":12,"GreenAreas":13}
 
+myfields=["Budget","AmusementParks","Aquarium","Museums","Bar","NightClubs","Casino","ReligousLocations"
+          ,"Cafe","Mall","Restaurant","Zoo","TouristicPlaces","Stadium","Green Areas"]
+          
+          
+def get_user_trip(user):##Function that takes user as parameter
+    total_number_of_trips=len(user.trip)
+    array=[]
+    array.append ([0,0,0,0])
+    for i in range (0,14):array.append([0,0,0])
+    for i in range(0,total_number_of_trips):
+        if(user.trip[i].rating>7):
+            temp=json.loads(user.trip[i].prefrences)
+            if(temp["Budget"]<=10000):array[0][0]=array[0][0]+1
+            elif(temp["Budget"]>10000,temp["Budget"]<=20000):array[0][1]=array[0][1]+1
+            elif(temp["Budget"]>20000,temp["Budget"]<=50000):array[0][2]=array[0][2]+1
+            elif(temp["Budget"]>50000):array[0][3]=array[0][3]+1
+
+            for j in range(1,len(myfields)):
+                location=field_index[myfields[j]]+1
+                if(temp[myfields[j]]==0):array[location][0]=array[location][0]+1
+                elif(temp[myfields[j]]<=5):array[location][1]=array[location][1]+1
+                elif(temp[myfields[j]]>5):array[location][2]=array[location][2]+1
+
+    predicted={}
+    number=array[0].index(max(array[0]))
+    if number==0:predicted["Budget"]=5000
+    elif number==1:predicted["Budget"]=15000
+    elif number==2:predicted["Budget"]=35000
+    elif number==3:predicted["Budget"]=70000
+
+
+    for x in range(1,len(myfields)):
+        number=array[j].index(max(array[j]))
+        if number==0:predicted[myfields[j]]=1
+        elif number==1:predicted[myfields[j]]=5
+        elif number==2:predicted[myfields[j]]=10
+
+    return predicted
+
+
+def formulate(tripID,age,gender,preferences): 
+    final=[0,0,0,0,0,0]
+    if age <25:final[0]=100
+    elif age >25 and age <45:final[0]=300
+    elif age >45 :final[0]=500
+
+    if gender=="M":final[1]=100
+    elif gender =="F":final[1]=300
+    
+    if preferences.budget <=10000:final[2]=100
+    elif preferences.budget >10000 and preferences.budget <=20000:final[2]=300
+    elif preferences.budget >20000 and preferences.budget <=50000:final[2]=500
+    elif preferences.budget >50000 :final[2]=700
+
+    final[3]=(preferences.preferences.AmusementParks+preferences.preferences.Zoo+preferences.preferences.GreenAreas+preferences.preferences.Aquarium+preferences.preferences.Stadium)*(300/5)
+    final[4]=(preferences.preferences.Bar+preferences.preferences.NightClub+preferences.preferences.Casino+preferences.preferences.Cafe+preferences.preferences.Restaurant+preferences.preferences.Mall)*(300/6)
+    final[5]=(preferences.preferences.TouristicPlaces+preferences.preferences.ReligousLocations+preferences.preferences.Museum)*(300/3)
+
+    return tripID,final 
+    
+    
+    
+   def knn (prediction,All_trips,user):
+    mytemp=formulate(-1,user.age,user.gender,prediction)
+    point1 = np.array(mytemp)
+    recommended = []
+    for i in range(0,len(All_trips)):
+        point2 = np.array(All_trips[i].value)
+        recommended.append(np.linalg.norm(point1 - point2), All_trips[i].id)
+    recommended.sort(reverse=True)       
+    return recommended[:3]
