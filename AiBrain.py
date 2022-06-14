@@ -5,8 +5,6 @@ import json
 
 
 
-
-
 class AiBrain:
 
     def __init__(self,userPriorities,hotel,configurations):
@@ -47,7 +45,7 @@ class AiBrain:
 
     def __calculatePriority(self):
         
-        self.__debug()
+        #self.__debug()
         for place in self.places:
             priority=0
             for type in place['types']:
@@ -95,7 +93,12 @@ class AiBrain:
 
 
     def __filter(self,data):
+
         tempArray=[]
+        dict_filter = lambda x, y: dict([ (i,x[i]) for i in x if i in set(y) ])
+       
+        new_dict_keys = ("c","d")
+        small_dict=dict_filter(data, new_dict_keys)
 
         for x in data:
             for y in x['results']:
@@ -107,11 +110,20 @@ class AiBrain:
                     y.pop('icon_background_color')
                     y.pop('icon_mask_base_uri')
                     y.pop('opening_hours')
+                    y.pop('place_id')
+                    y.pop('reference')
+                    y.pop('scope')
+                    y.pop('vicinity')
+                    y.pop('business_status')
+
                 except:pass
                 tempArray.append(dict(y))
 
 
         return tempArray
+
+
+    
 
 
     def __debug(self):
