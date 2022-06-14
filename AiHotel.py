@@ -7,11 +7,16 @@ import requests
 
 class AiHotel:
 
-    def __init__(self,hotelApi,cityLocatorApi,cityName,n,budget):
+    def __init__(self,hotelApi,cityLocatorApi,cityName,n,budget_exact):
         self.hotelApi=hotelApi
         self.cityLocatorApi=cityLocatorApi
         self.cityName=cityName
         self.numDays=n
+        self.budget=0
+        if(budget_exact<=10000):self.budget=0
+        elif(budget_exact>10000 and budget_exact<=20000):self.budget=1
+        elif(budget_exact>20000 and budget_exact<=50000):self.budget=2
+        elif(budget_exact>50000):self.budget=3
         self.budget=budget
         self.hotel=[]
         self.init=False
@@ -66,6 +71,8 @@ class AiHotel:
         pic=pic[:pic.index("jpg") + len("jpg")]
         price=response["ratePlan"]["price"]["fullyBundledPricePerStay"]
         night_price=response["ratePlan"]["price"]["current"]
+        starRating=response["starRating"]
+        address=response["address"]
         #The Hotel also has
         # ["starRating"] <= Star Rating
         # ["address"]    <= Exact Address of the Hotel
@@ -77,7 +84,7 @@ class AiHotel:
         #["name"] <= Name of Hotel
         # ["optimizedThumbUrls"]["srpDesktop"] <= Pic of Hotel
         
-        self.hotel={"name":name,"lat":str(latit),"long":str(long),"total_price":price,"night_price":night_price,"pic_url":pic}
+        self.hotel={"name":name,"lat":str(latit),"long":str(long),"total_price":price,"night_price":night_price,"pic_url":pic,"starRating":starRating,"Address":address}
         self.init=True
 
 
