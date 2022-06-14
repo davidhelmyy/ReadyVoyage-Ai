@@ -17,7 +17,7 @@ class AiHotel:
         elif(budget_exact>10000 and budget_exact<=20000):self.budget=1
         elif(budget_exact>20000 and budget_exact<=50000):self.budget=2
         elif(budget_exact>50000):self.budget=3
-        self.budget=budget
+      
         self.hotel=[]
         self.init=False
 

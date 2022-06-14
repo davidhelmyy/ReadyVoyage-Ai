@@ -5,13 +5,11 @@ from AIModel import AIModel
 
 def initData():
     userPriorities={
-        "casino":7,
-        "night_club" :5,
-       "stadium":3,
-        "tourist_attraction":8
+        "Casino":7,
+        "Stadium":3,
+        "TouristicPlaces":8,
+        "Museums":10
    }
-
-    #userPriorities={'tourist_attraction':7}
     numDays=7
     budget=1
     cityName="italy"
