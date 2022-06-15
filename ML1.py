@@ -1,7 +1,6 @@
 import json
 import numpy as np
-myfields=["Budget","AmusementParks","Aquarium","Museums","Bar","NightClubs","Casino","ReligousLocations"
-          ,"Cafe","Mall","Restaurant","Zoo","TouristicPlaces","Stadium","Green Areas"]
+
 
 class ML1:
        
