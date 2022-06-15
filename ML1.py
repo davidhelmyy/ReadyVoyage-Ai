@@ -78,9 +78,9 @@ class ML1:
 
             for x in range(1,len(myfields)):
                 number=array[j].index(max(array[j]))
-                if number==0:predicted[myfields[j]]=0
-                elif number==1:predicted[myfields[j]]=5
-                elif number==2:predicted[myfields[j]]=10
+                if number==0:predicted[self.configurations["myfields"][j]]=0
+                elif number==1:predicted[self.configurations["myfields"][j]]=5
+                elif number==2:predicted[self.configurations["myfields"][j]]=10
 
             self.predicted= predicted
 
