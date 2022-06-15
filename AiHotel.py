@@ -13,11 +13,11 @@ class AiHotel:
         self.cityName=cityName
         self.numDays=n
         self.budget_exact=budget_exact
-        #self.budget=0
-        #if(budget_exact<=10000):self.budget=0
-        #elif(budget_exact>10000 and budget_exact<=20000):self.budget=1
-        #elif(budget_exact>20000 and budget_exact<=50000):self.budget=2
-        #elif(budget_exact>50000):self.budget=3
+        self.budget=0
+        if(budget_exact<=10000):self.budget=0
+        elif(budget_exact>10000 and budget_exact<=20000):self.budget=1
+        elif(budget_exact>20000 and budget_exact<=50000):self.budget=2
+        elif(budget_exact>50000):self.budget=3
         self.budget=budget
         self.hotel=[]
         self.init=False
@@ -47,9 +47,11 @@ class AiHotel:
         
 
         #Define Budget
-        percent=int(budget_exact*0.35)
         Min=0
-        Max=int(percent/self.numDays)
+        Max=int(100000/self.numDays)
+        if(self.budget==0):Max=int(5000/self.numDays)
+        elif(self.budget==1):Max=int(10000/self.numDays)
+        elif(self.budget==2):Max=int(25000/self.numDays)
 
         url = "https://hotels-com-provider.p.rapidapi.com/v1/hotels/nearby"
         querystring = {"latitude":str(lat),"currency":"EGP","longitude":str(lng),
