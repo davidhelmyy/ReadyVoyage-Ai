@@ -1,0 +1,15 @@
+def city_finder(city_name):
+    import requests
+
+    url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI"
+
+    querystring = {"q":city_name,"pageNumber":"1","pageSize":"1","autoCorrect":"true"}
+
+    headers = { 
+	"X-RapidAPI-Key": "55d4996fffmsh78e8de59373694bp147514jsn6c61da90cbe0",
+	"X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()["value"][0]["url"]
+
+    return city_name,response
