@@ -11,6 +11,8 @@ class ML1:
             self.gender=gender
             self.All_trips=All_trips
             self.init=False
+            with open('Config.json') as json_file:
+                self.configurations = json.load(json_file)
             self.recommendation=[]
             self.predicted={}
             self.formula=[]
@@ -63,9 +65,9 @@ class ML1:
                     elif(temp["Budget"]>50000):array[0][3]=array[0][3]+1
 
                     for j in range(1,len(myfields)):
-                        if(temp[myfields[j]]==0):array[j][0]=array[j][0]+1
-                        elif(temp[myfields[j]]<=5):array[j][1]=array[j][1]+1
-                        elif(temp[myfields[j]]>5):array[j][2]=array[j][2]+1
+                        if(temp[self.configurations["myfields"][j]]==0):array[j][0]=array[j][0]+1
+                        elif(temp[self.configurations["myfields"][j]]<=5):array[j][1]=array[j][1]+1
+                        elif(temp[self.configurations["myfields"][j]]>5):array[j][2]=array[j][2]+1
 
             predicted={}
             number=array[0].index(max(array[0]))
