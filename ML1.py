@@ -58,22 +58,22 @@ class ML1:
             for i in range(0,total_number_of_trips):
                 if(self.user_trips[i].rating>7):
                     temp=json.loads(self.user_trips[i].preferences)
-                    if(temp["Budget"]<=10000):array[0][0]=array[0][0]+1
-                    elif(temp["Budget"]>10000,temp["Budget"]<=20000):array[0][1]=array[0][1]+1
-                    elif(temp["Budget"]>20000,temp["Budget"]<=50000):array[0][2]=array[0][2]+1
-                    elif(temp["Budget"]>50000):array[0][3]=array[0][3]+1
+                    if(temp["budget"]<=10000):array[0][0]=array[0][0]+1
+                    elif(temp["budget"]>10000 and temp["budget"]<=20000):array[0][1]=array[0][1]+1
+                    elif(temp["budget"]>20000 and temp["budget"]<=50000):array[0][2]=array[0][2]+1
+                    elif(temp["budget"]>50000):array[0][3]=array[0][3]+1
 
                     for j in range(1,len(myfields)):
-                        if(temp["preferences"][self.configurations["myfields"][j]]==0):array[j][0]=array[j][0]+1
-                        elif(temp["preferences"][self.configurations["myfields"][j]]<=5):array[j][1]=array[j][1]+1
-                        elif(temp["preferences"][self.configurations["myfields"][j]]>5):array[j][2]=array[j][2]+1
+                        if(int(temp["preferences"][self.configurations["myfields"][j]])==0):array[j][0]=array[j][0]+1
+                        elif(int(temp["preferences"][self.configurations["myfields"][j]])<=5):array[j][1]=array[j][1]+1
+                        elif(int(temp["preferences"][self.configurations["myfields"][j]])>5):array[j][2]=array[j][2]+1
 
             predicted={}
             number=array[0].index(max(array[0]))
-            if number==0:predicted["Budget"]=5000
-            elif number==1:predicted["Budget"]=15000
-            elif number==2:predicted["Budget"]=35000
-            elif number==3:predicted["Budget"]=70000
+            if number==0:predicted["budget"]=5000
+            elif number==1:predicted["budget"]=15000
+            elif number==2:predicted["budget"]=35000
+            elif number==3:predicted["budget"]=70000
               
             temp_dict={}
             for x in range(1,len(myfields)):
@@ -92,10 +92,10 @@ class ML1:
             point1 = np.array(self.formula)
             recommended = []
             for i in range(0,len(self.All_trips)):
-                point2 = np.array(self.All_trips[i]["ML_TABLE_RATING_>_6"])
+                point2 = np.array(self.All_trips[i][1])
                 recommended.append(np.linalg.norm(point1 - point2), self.All_trips[i].id)
             recommended.sort(reverse=True)       
-            self.recommendation= [recommended[0].id,recommended[1].id,recommended[2].id]
+            self.recommendation= [recommended[0][0],recommended[1][0],recommended[2].[0]]
             self.init=True
             
             
