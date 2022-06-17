@@ -19,6 +19,7 @@ class ML1:
             self.recommendation=[]
             self.predicted={}
             self.formula=[]
+            self.ids={}
        
        def GetMyRecommendations(self):
             if self.init:
@@ -65,7 +66,7 @@ class ML1:
             for i in range (0,14):array.append([0,0,0])
             for i in range(0,total_number_of_trips):
                 temp=(self.user_trips[i])
-                print(temp)
+                self.ids.add(temp.id)
                 if(temp.rating>7):
                     temp = temp.preferences
                     if(temp.budget<=10000):array[0][0]=array[0][0]+1
@@ -102,8 +103,10 @@ class ML1:
             point1 = np.array(self.formula)
             recommended = []
             for i in range(0,len(self.All_trips)):
-                point2 = np.array(self.All_trips[i].data[1])
-                recommended.append((np.linalg.norm(point1 - point2), self.All_trips[i].data[0]))
+                if(self.All_trips[i].data[0] not in self.ids):
+                     point2 = np.array(self.All_trips[i].data[1])
+                     recommended.append((np.linalg.norm(point1 - point2), self.All_trips[i].data[0]))
             recommended.sort(reverse=True)       
-            self.recommendation= [recommended[0][1],recommended[1][1],recommended[2][1]]
+            try:self.recommendation= [recommended[0][1],recommended[1][1],recommended[2][1]]
+            catch : self.recommendation=[34,33,23]   
             self.init=True
