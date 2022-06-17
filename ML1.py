@@ -1,6 +1,7 @@
 import json
 import numpy as np
-
+import os
+from pathlib import Path
 
 class ML1:
        
@@ -10,8 +11,11 @@ class ML1:
             self.gender=gender
             self.All_trips=All_trips
             self.init=False
-            with open('Config.json') as json_file:
-                self.configurations = json.load(json_file)
+            BASE_DIR = Path(__file__).resolve().parent.parent.parent
+            json_file = open(os.path.join(BASE_DIR, 'staticfiles', "Config.json"))
+            
+            #with open('/app/AI/Config.json') as json_file:
+            self.configurations = json.load(json_file)
             self.recommendation=[]
             self.predicted={}
             self.formula=[]
@@ -24,7 +28,7 @@ class ML1:
             return self.recommendation
         
         
-       def __formula(self):
+       def __formula1(self):
             final=[0,0,0,0,0,0]
             if self.age <=25:final[0]=100
             elif self.age >25 and self.age <=45:final[0]=300
@@ -33,16 +37,16 @@ class ML1:
             if self.gender=="M":final[1]=100
             elif self.gender =="F":final[1]=300
             
-            if self.predicted.budget <=10000:final[2]=0
-            elif self.predicted.budget >10000 and self.predicted.budget <=20000:final[2]=500
-            elif self.predicted.budget >20000 and self.predicted.budget <=50000:final[2]=1000
-            elif self.predicted.budget >50000 :final[2]=1500
+            if self.predicted['budget'] <=10000:final[2]=0
+            elif self.predicted['budget'] >10000 and self.predicted['budget']<=20000:final[2]=500
+            elif self.predicted['budget'] >20000 and self.predicted['budget'] <=50000:final[2]=1000
+            elif self.predicted['budget']>50000 :final[2]=1500
               
-            final[3]=(self.predicted.preferences.AmusementParks+self.predicted.preferences.Zoo+self.predicted.preferences.GreenAreas+self.predicted.preferences.Aquarium+self.predicted.preferences.Stadium)*(300/5)
+            final[3]=(self.predicted['preferences']['AmusementParks']+self.predicted['preferences']['Zoo']+self.predicted['preferences']['GreenAreas']+self.predicted['preferences']['Aquarium']+self.predicted['preferences']['Stadium'])*(300/5)
             
-            final[4]=(self.predicted.preferences.Bar+self.predicted.preferences.NightClub+self.predicted.preferences.Casino+self.predicted.preferences.Cafe+self.predicted.preferences.Restaurant+self.predicted.preferences.Mall)*(300/6)
+            final[4]=(self.predicted['preferences']['Bar']+self.predicted['preferences']['NightClubs']+self.predicted['preferences']['Casino']+self.predicted['preferences']['Cafe']+self.predicted['preferences']['Restaurant']+self.predicted['preferences']['Mall'])*(300/6)
             
-            final[5]=(self.predicted.preferences.TouristicPlaces+self.predicted.preferences.ReligousLocations+self.predicted.preferences.Museum)*(300/3)
+            final[5]=(self.predicted['preferences']['TouristicPlaces']+self.predicted['preferences']['ReligousLocations']+self.predicted['preferences']['Museums'])*(300/3)
 
             self.formula=final  
            
@@ -51,22 +55,28 @@ class ML1:
            
            
        def __get_prediction(self):
-            total_number_of_trips=len(self.user_trips)
+            print(self.user_trips[0].rating)
+            total_number_of_trips=len(list(self.user_trips))
             array=[]
+            print(total_number_of_trips)
+            print(self.user_trips)
+            
             array.append ([0,0,0,0])
             for i in range (0,14):array.append([0,0,0])
             for i in range(0,total_number_of_trips):
-                if(self.user_trips[i].rating>7):
-                    temp=json.loads(self.user_trips[i].preferences)
-                    if(temp["budget"]<=10000):array[0][0]=array[0][0]+1
-                    elif(temp["budget"]>10000 and temp["budget"]<=20000):array[0][1]=array[0][1]+1
-                    elif(temp["budget"]>20000 and temp["budget"]<=50000):array[0][2]=array[0][2]+1
-                    elif(temp["budget"]>50000):array[0][3]=array[0][3]+1
+                temp=(self.user_trips[i])
+                print(temp)
+                if(temp.rating>7):
+                    temp = temp.preferences
+                    if(temp.budget<=10000):array[0][0]=array[0][0]+1
+                    elif(temp.budget>10000 and temp.budget<=20000):array[0][1]=array[0][1]+1
+                    elif(temp.budget>20000 and temp.budget<=50000):array[0][2]=array[0][2]+1
+                    elif(temp.budget>50000):array[0][3]=array[0][3]+1
 
-                    for j in range(1,len(myfields)):
-                        if(int(temp["preferences"][self.configurations["myfields"][j]])==0):array[j][0]=array[j][0]+1
-                        elif(int(temp["preferences"][self.configurations["myfields"][j]])<=5):array[j][1]=array[j][1]+1
-                        elif(int(temp["preferences"][self.configurations["myfields"][j]])>5):array[j][2]=array[j][2]+1
+                    for j in range(1,len(self.configurations["myfields"])):
+                        if(int(temp.preferences[self.configurations["myfields"][j]])==0):array[j][0]=array[j][0]+1
+                        elif(int(temp.preferences[self.configurations["myfields"][j]])<=5):array[j][1]=array[j][1]+1
+                        elif(int(temp.preferences[self.configurations["myfields"][j]])>5):array[j][2]=array[j][2]+1
 
             predicted={}
             number=array[0].index(max(array[0]))
@@ -76,11 +86,11 @@ class ML1:
             elif number==3:predicted["budget"]=70000
               
             temp_dict={}
-            for x in range(1,len(myfields)):
-                number=array[j].index(max(array[j]))
-                if number==0:temp_dict[self.configurations["myfields"][j]]=0
-                elif number==1:temp_dict[self.configurations["myfields"][j]]=5
-                elif number==2:temp_dict[self.configurations["myfields"][j]]=10
+            for x in range(1,len(self.configurations["myfields"])):
+                number=array[x].index(max(array[x]))
+                if number==0:temp_dict[self.configurations["myfields"][x]]=0
+                elif number==1:temp_dict[self.configurations["myfields"][x]]=5
+                elif number==2:temp_dict[self.configurations["myfields"][x]]=10
             predicted["preferences"]=temp_dict
             self.predicted= predicted
 
@@ -88,15 +98,12 @@ class ML1:
        
        def __GetRecommendation(self):
             self.__get_prediction()       
-            self.__formula()
+            self.__formula1()
             point1 = np.array(self.formula)
             recommended = []
             for i in range(0,len(self.All_trips)):
-                point2 = np.array(self.All_trips[i][1])
-                recommended.append(np.linalg.norm(point1 - point2), self.All_trips[i][0])
+                point2 = np.array(self.All_trips[i].data[1])
+                recommended.append((np.linalg.norm(point1 - point2), self.All_trips[i].data[0]))
             recommended.sort(reverse=True)       
-            self.recommendation= [recommended[0][0],recommended[1][0],recommended[2].[0]]
+            self.recommendation= [recommended[0][1],recommended[1][1],recommended[2][1]]
             self.init=True
-            
-            
-            
