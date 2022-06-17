@@ -93,7 +93,7 @@ class ML1:
             recommended = []
             for i in range(0,len(self.All_trips)):
                 point2 = np.array(self.All_trips[i][1])
-                recommended.append(np.linalg.norm(point1 - point2), self.All_trips[i].id)
+                recommended.append(np.linalg.norm(point1 - point2), self.All_trips[i][0])
             recommended.sort(reverse=True)       
             self.recommendation= [recommended[0][0],recommended[1][0],recommended[2].[0]]
             self.init=True
