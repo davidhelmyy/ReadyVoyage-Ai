@@ -1,0 +1,473 @@
+{
+    "trip": {
+        "Day 1": [
+            {
+                "score": 84.60000000000001,
+                "name": "Spazio Davide Campari",
+                "lat": 45.5389633,
+                "lng": 9.235396399999999,
+                "types": [
+                    "museum",
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.7,
+                "user_ratings_total": 309,
+                "photos": [
+                    {
+                        "height": 3024,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/101558745319042769263\">Valerio Bitetta</a>"
+                        ],
+                        "photo_reference": "Aap_uECgG8Q2s5QbeNBdea-2rsSyu3nIQE7uOq2Vt_Z-r2qT-XUaXIWxCmDQcHeyN4DyYbdCTDGISVrzSLQvDllVQ5B1YsEK8QF3zqRmOjXEoZyLfQt58M4ABLBqBlwCjrtGTr5SMlmOhMjssjHD-sbuvqE2xXVYKhjWuPBQa2N0oeZ4G2OI",
+                        "width": 4032
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 84.60000000000001,
+                "name": "Spazio Davide Campari",
+                "lat": 45.5389633,
+                "lng": 9.235396399999999,
+                "types": [
+                    "museum",
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.7,
+                "user_ratings_total": 309,
+                "photos": [
+                    {
+                        "height": 3024,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/101558745319042769263\">Valerio Bitetta</a>"
+                        ],
+                        "photo_reference": "Aap_uEAlMUR62zRPGRxKHj3vXA7vBWEJEY3vPqTBl8RcRIx3IcPvaHSKikjuVTfcc20uc0X27fcLuHn0zA2HS9weN0uK2RVsRxm05PW6CllN8Tt-3YRI2_CKDO3p8y6NVgHNQdTwNyYDywx6EeLUcKzFtQcTfBLPLBY0zQxB-CDxlnAaIWWt",
+                        "width": 4032
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 81.0,
+                "name": "Bunker Breda",
+                "lat": 45.5382806,
+                "lng": 9.2078314,
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.5,
+                "user_ratings_total": 31,
+                "photos": [
+                    {
+                        "height": 4032,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117075775669792269684\">Cristina Buzio</a>"
+                        ],
+                        "photo_reference": "Aap_uED4DK9OoInNqrMsNKoB6E2KWITUpGsChFM5WzPbgpYoa4dzhHAkwhAwnhgL5GcFAys0OEUdzZNXGE4bZ1Komc8xh2eiEJd2KO6he1fvQXPg0_8XtfwWigzjXhmBMpV2Qy5--AcfU3veF35uS6QezIkpz-xUjZ0lX0OPmifyacgT0SV8",
+                        "width": 3024
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 0,
+                "name": "GRAND HOTEL BARONE DI SASSJ",
+                "lat": 45.53750000000001,
+                "lng": 9.230833300000004,
+                "types": [
+                    "bar",
+                    "lodging",
+                    "restaurant",
+                    "point_of_interest",
+                    "food",
+                    "establishment"
+                ],
+                "rating": 4,
+                "user_ratings_total": 1343,
+                "photos": [
+                    {
+                        "height": 2048,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/115274081154645231733\">Grand Hotel Barone di Sassj</a>"
+                        ],
+                        "photo_reference": "Aap_uEAyEdyvRqoJjqhQSmaOlzAn8tdV-2LYMVwpiRE6GPrzmLPgmi38pWIMKziC_tfWXrpK4x8XwQu_YHhFpLPbvDM6Wx0ZbNje_V_weWBKC7c4wVtSTO2h7rVDstuAj8OutcpcoBRdI8iHLnqlkEuPNvJSuhWipvyqQYBiBoHuwneNnzf7",
+                        "width": 1280
+                    }
+                ]
+            }
+        ],
+        "Day 2": [
+            {
+                "score": 81.0,
+                "name": "Bunker Breda",
+                "lat": 45.5382806,
+                "lng": 9.2078314,
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.5,
+                "user_ratings_total": 31,
+                "photos": [
+                    {
+                        "height": 4032,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117075775669792269684\">Cristina Buzio</a>"
+                        ],
+                        "photo_reference": "Aap_uED4DK9OoInNqrMsNKoB6E2KWITUpGsChFM5WzPbgpYoa4dzhHAkwhAwnhgL5GcFAys0OEUdzZNXGE4bZ1Komc8xh2eiEJd2KO6he1fvQXPg0_8XtfwWigzjXhmBMpV2Qy5--AcfU3veF35uS6QezIkpz-xUjZ0lX0OPmifyacgT0SV8",
+                        "width": 3024
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 81.0,
+                "name": "Bunker Breda",
+                "lat": 45.5382806,
+                "lng": 9.2078314,
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.5,
+                "user_ratings_total": 31,
+                "photos": [
+                    {
+                        "height": 4032,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117075775669792269684\">Cristina Buzio</a>"
+                        ],
+                        "photo_reference": "Aap_uEA9eWRyBxUWk5D5gYKIVajrDibO9jWwyi6ggeVnTK1o7tlK8uo_uQWbq8LEDwbAlaBsLjTtzyz2_N5_y0dyH0nqoku4dH3QIDBKnx-5NNLPE2sR1OrqkAktf-F2ccSFvthrt1qyZB7kVxE1vQo3UMbVzeEqj5GTdxNe2Cf-8YfXn4xX",
+                        "width": 3024
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 81.0,
+                "name": "Bunker Breda",
+                "lat": 45.5382806,
+                "lng": 9.2078314,
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.5,
+                "user_ratings_total": 31,
+                "photos": [
+                    {
+                        "height": 4032,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117075775669792269684\">Cristina Buzio</a>"
+                        ],
+                        "photo_reference": "Aap_uEA9eWRyBxUWk5D5gYKIVajrDibO9jWwyi6ggeVnTK1o7tlK8uo_uQWbq8LEDwbAlaBsLjTtzyz2_N5_y0dyH0nqoku4dH3QIDBKnx-5NNLPE2sR1OrqkAktf-F2ccSFvthrt1qyZB7kVxE1vQo3UMbVzeEqj5GTdxNe2Cf-8YfXn4xX",
+                        "width": 3024
+                    }
+                ],
+                "priority": 18.0
+            },
+            {
+                "score": 0,
+                "name": "El Mucho Gusto Ristorante Messicano Milano",
+                "lat": 45.53712609999999,
+                "lng": 9.242185499999998,
+                "types": [
+                    "restaurant",
+                    "point_of_interest",
+                    "food",
+                    "establishment"
+                ],
+                "rating": 3.7,
+                "user_ratings_total": 215,
+                "photos": [
+                    {
+                        "height": 1846,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/104029529070208802329\">Ilario Scandurra</a>"
+                        ],
+                        "photo_reference": "Aap_uECbQVr2eZNyR_2VE3_19NTWNhG7YCV1EEKhC3aGl-bEXXeSHqYD1TDMjLrOdOyGmjdObloZaIad3P_aKRxY95kcfhLtXbNxtGBG7j6YqF0sCcII-SzXyJECwCMsmRNrr75w3MuGfVuRGui8NQF1uxGBvOydwpsQg0ERtgOCigV3M1q9",
+                        "width": 4000
+                    }
+                ]
+            }
+        ],
+        "Day 3": [
+            {
+                "score": 50.0,
+                "name": "Casa Carino",
+                "lat": 45.5311736,
+                "lng": 9.2299856,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 5,
+                "priority": 10.0
+            },
+            {
+                "score": 50.0,
+                "name": "MEMENTO - Vittorio Padovani - Luogo Omicidio",
+                "lat": 45.538438,
+                "lng": 9.223338900000002,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 2,
+                "priority": 10.0
+            },
+            {
+                "score": 40.0,
+                "name": "Gigante Saggio, platano monumentale",
+                "lat": 45.53524329999999,
+                "lng": 9.2340225,
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 1,
+                "photos": [
+                    {
+                        "height": 4128,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/105395422391057214396\">Alessandro Aliverti</a>"
+                        ],
+                        "photo_reference": "Aap_uEBsbAHRwARxO6jUxZey1zoDTS2fStS2Tg8qngja5JVOkx--d_zwhAdL7tW04nkFg-9wltD1SitVgOn8-x72ZhmG3ViTUiRH4xs1r2yMuDOrOiZSbu3evbB0kXFvDE8kgF1pAgHAu_GhR5euO-5RCipzmUhW_B4kv8g9slYKuBTTrNO_",
+                        "width": 2322
+                    }
+                ],
+                "priority": 8.0
+            },
+            {
+                "score": 0,
+                "name": "Cacao",
+                "lat": 45.53016239999999,
+                "lng": 9.2256243,
+                "types": [
+                    "bar",
+                    "restaurant",
+                    "point_of_interest",
+                    "food",
+                    "establishment"
+                ],
+                "rating": 4,
+                "user_ratings_total": 4477,
+                "photos": [
+                    {
+                        "height": 1153,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/113277418179111521256\">Cacao</a>"
+                        ],
+                        "photo_reference": "Aap_uECUUKDQapa_am4KBuJkmmG-GoToo-_7-RVgMSm80evpbCnzqNrizsei3VtxAiS83j9AI_FUICIhDp6_DY1iE0Thlj4xb8IhescGLSZrvoAMTs2zoOy8nAA63vqoBWgf56O7hlMdgbWhaDAoOdHjg86_eegXD3QEA4hsfE9rw8dOhKht",
+                        "width": 2048
+                    }
+                ]
+            }
+        ],
+        "Day 4": [
+            {
+                "score": 50.0,
+                "name": "MEMENTO - Sergio Bazzega - Luogo Omicidio",
+                "lat": 45.5384274,
+                "lng": 9.2232816,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 2,
+                "priority": 10.0
+            },
+            {
+                "score": 50.0,
+                "name": "MEMENTO - Sergio Bazzega e Vittorio Padovani - Luogo Omicidio",
+                "lat": 45.5384798,
+                "lng": 9.223373800000001,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 1,
+                "priority": 10.0
+            },
+            {
+                "score": 40.0,
+                "name": "Pleasure garden",
+                "lat": 45.5277508,
+                "lng": 9.2541706,
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 5,
+                "priority": 8.0
+            },
+            {
+                "score": 0,
+                "name": "Madrigal Pub",
+                "lat": 45.53580469999999,
+                "lng": 9.2199632,
+                "types": [
+                    "bar",
+                    "restaurant",
+                    "point_of_interest",
+                    "food",
+                    "establishment"
+                ],
+                "rating": 4.3,
+                "user_ratings_total": 1633,
+                "photos": [
+                    {
+                        "height": 596,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/115378869308040046970\">Madrigal Pub</a>"
+                        ],
+                        "photo_reference": "Aap_uEBfppMac7YnUuTnw1Gk14W2N6BkdnTq2d4zjsBo-uwv8Y3eZ4DZo-yNlVF0AaddOlyrGl4BanPXBgcjujN_HJ21fkLU_JUQn7FAlvug9HALxCqgCdU_aXJfzIMBkyBhSkVMksmjuDFImdnUsaeRsqdQ_-dG36shdBTEaH7TpUhBbQY5",
+                        "width": 1060
+                    }
+                ]
+            }
+        ],
+        "Day 5": [
+            {
+                "score": 50.0,
+                "name": "A piece of Industrial Art",
+                "lat": 45.5145894,
+                "lng": 9.244658599999998,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 5,
+                "user_ratings_total": 2,
+                "photos": [
+                    {
+                        "height": 4608,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/114554383191198549706\">Leonardo Empio La Marca</a>"
+                        ],
+                        "photo_reference": "Aap_uEBDY7-t60Ws6XvEqyqcYQ0JZt9gtIxYxAT5_nJ_L-Ahrhf8xL6iIbiCr22wu1zLpTlsIlYd0XtyWKlQYOwcoURouGc_51ftPmVAgzbEP3ilwRoxuoOb7BxHWLVp8AeHs_OZGsOobCe4QgVvGVoRfQ-UYKwT8vIwSwcc2PLLOe2X9_UV",
+                        "width": 2592
+                    }
+                ],
+                "priority": 10.0
+            },
+            {
+                "score": 48.0,
+                "name": "Galleria Campari",
+                "lat": 45.53913439999999,
+                "lng": 9.2355665,
+                "types": [
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.8,
+                "user_ratings_total": 82,
+                "photos": [
+                    {
+                        "height": 4912,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/109041514915243712397\">Galleria Campari</a>"
+                        ],
+                        "photo_reference": "Aap_uEB-BQKvdPGN3SW7m0yGM_KeVZRENotkwkM5vK0ZNz7K8lM_NEbKVZvpI3BNhWRrcQgozikpliYq0C2peQQjCECU9Om99qxTd4duQEeJwxe-F3IMYcIAviwIAWdNHoWMQ42iCe6rK-BUR_zIPHytX2N5nlf0n9rysPG63np92q0XRbTf",
+                        "width": 7360
+                    }
+                ],
+                "priority": 10.0
+            },
+            {
+                "score": 33.6,
+                "name": "Planetwin365",
+                "lat": 45.5437855,
+                "lng": 9.2391554,
+                "types": [
+                    "casino",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "rating": 4.8,
+                "user_ratings_total": 46,
+                "photos": [
+                    {
+                        "height": 1340,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/108247998625830146822\">Alessio Ganci</a>"
+                        ],
+                        "photo_reference": "Aap_uECiYByUtBmykAotVAgLe5HwVU6gZUeu8xWdqlekslRe2tvxOofvfXE54VMXSWSm0IReQyMJlO4uHkEwyAwhNaMTWhIzrQPLw09HQ_2FMrOcdanIeOYkp8_nG0r97VhrSKUhVQ6EH5DzGArffgFX1lf8U3-S2sHpKpHEgZ70W3iodtkn",
+                        "width": 1784
+                    }
+                ],
+                "priority": 7.0
+            },
+            {
+                "score": 0,
+                "name": "Premiata Trattoria Arlati dal 1936",
+                "lat": 45.5181459,
+                "lng": 9.2086032,
+                "types": [
+                    "restaurant",
+                    "point_of_interest",
+                    "food",
+                    "establishment"
+                ],
+                "rating": 4.6,
+                "user_ratings_total": 1384,
+                "photos": [
+                    {
+                        "height": 740,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/109832048082983217252\">Premiata Trattoria Arlati dal 1936</a>"
+                        ],
+                        "photo_reference": "Aap_uEBi_jqcIfoLCJYEb1wNxKlDeG0QiVYOe5KCFOSIK0H-5XaIT3Z-0QI2C4ZRY4ikDn79ca23Y37jkpGXNauSa6EEm5jVrKKMsiPFjoSvjCJKNJZi5hlakkv4ccefBr_2M_zhifU6lIvK3LFsGXsTz7UsyRbfr2h720twI5rm5MNWXxFV",
+                        "width": 1315
+                    }
+                ]
+            }
+        ]
+    },
+    "hotel": {
+        "name": "iH Hotels Milano St. John Sesto San Giovanni",
+        "lat": "45.529741",
+        "long": "9.228788",
+        "total_price": "total EGP 4,998 for 5&nbsp;nights",
+        "night_price": "EGP 837",
+        "pic_url": "https://exp.cdn-hotels.com/hotels/2000000/1360000/1351400/1351329/6cbd729b_z.jpg",
+        "starRating": 4.0,
+        "Address": {
+            "streetAddress": "Via Bruno Buozzi 97",
+            "extendedAddress": "",
+            "locality": "Sesto San Giovanni",
+            "postalCode": "20099",
+            "region": "MI",
+            "countryName": "Italy",
+            "countryCode": "it",
+            "obfuscate": false
+        }
+    }
+}

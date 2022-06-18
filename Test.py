@@ -10,9 +10,9 @@ def initData():
         "TouristicPlaces":8,
         "Museums":10
    }
-    numDays=7
+    numDays=5
     budget=1
-    cityName="italy"
+    cityName="Milan"
 
     return userPriorities,cityName,numDays,budget
 

@@ -3,6 +3,7 @@
 from AiBrain import AiBrain
 from AiHotel import AiHotel
 import json
+import Utilities
 
 class AIModel:
     def __init__(self,userPriorities,cityName,numDays,budget):
@@ -16,8 +17,8 @@ class AIModel:
         with open('Config.json') as json_file:
             self.configurations = json.load(json_file)
 
-        self.__FilterPriorities(userPriorities)
-        print(self.userPriorities)
+        self.userPriorities=Utilities.FilterPriorities(userPriorities,self.configurations)
+       
 
 
     #run this function only to get data
@@ -42,24 +43,20 @@ class AIModel:
         
         Ai=AiBrain(self.userPriorities,self.hotel,self.configurations)
         Ai.Initialize()
-        data=Ai.GetData()
+        data={}
+        data['trip']=Ai.CreateTrip(self.numDays)
         data['hotel']=self.hotel
+        #data['city']=Utilities.GetCityImage(self.cityName,self.configurations)
         jsonData=json.dumps(data)
+        
         return jsonData
 
 
-    def __FilterPriorities(self,prio):
-        temp={}
-
-        for p in prio.items():
-            if p[1] !=0:
-                for x in self.configurations["prio"][p[0]]:
-                    temp[x]=p[1]
-        
-        self.userPriorities=temp
 
 
 
+
+    
 
 
         
